@@ -247,12 +247,12 @@ button { font: inherit; }
   .sousei-tabs::before,
   .sousei-tabs::after {
     position: absolute;
-    top: 21px;
+    top: 33px;
     z-index: 4;
     display: block;
     width: 22px;
     height: 36px;
-    color: rgba(35,25,22,.48);
+    color: rgba(35,25,22,0.2);
     font-size: 46px;
     font-weight: 300;
     line-height: 30px;
