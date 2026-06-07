@@ -106,9 +106,25 @@
 
   let souseiActiveService = souseiServices[0].key;
 
+  const souseiTabsFrame = document.querySelector('.sousei-tabs');
   const souseiTabs = document.getElementById('sousei-tabs');
   const souseiGrid = document.getElementById('sousei-card-grid');
   const souseiCount = document.getElementById('sousei-count');
+
+
+  const souseiUpdateTabScrollIndicators = () => {
+    if (!souseiTabsFrame) {
+      return;
+    }
+
+    const maxScrollLeft = souseiTabs.scrollWidth - souseiTabs.clientWidth;
+    const canScroll = maxScrollLeft > 1;
+    souseiTabsFrame.classList.toggle('has-scroll-left', canScroll && souseiTabs.scrollLeft > 1);
+    souseiTabsFrame.classList.toggle(
+      'has-scroll-right',
+      canScroll && souseiTabs.scrollLeft < maxScrollLeft - 1,
+    );
+  };
 
   const souseiCreateIcon = (serviceKey, extraClass = '') => {
     const service = souseiServices.find((item) => item.key === serviceKey);
@@ -189,6 +205,7 @@
       });
       souseiTabs.appendChild(tab);
     });
+    requestAnimationFrame(souseiUpdateTabScrollIndicators);
   };
 
   const souseiRenderCards = () => {
@@ -248,6 +265,9 @@
     souseiRenderTabs();
     souseiRenderCards();
   };
+
+  souseiTabs.addEventListener('scroll', souseiUpdateTabScrollIndicators, { passive: true });
+  window.addEventListener('resize', souseiUpdateTabScrollIndicators);
 
   souseiRender();
 })();

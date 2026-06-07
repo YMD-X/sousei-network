@@ -126,6 +126,11 @@ button { font: inherit; }
   scrollbar-width: none;
 }
 .sousei-tabs__inner::-webkit-scrollbar { display: none; }
+.sousei-tabs::before,
+.sousei-tabs::after {
+  content: "";
+  display: none;
+}
 .sousei-tab {
   --sousei-service-color: var(--sousei-ink);
   position: relative;
@@ -239,7 +244,29 @@ button { font: inherit; }
   .sousei-lead { max-width: 330px; line-height: 1.7; }
   .sousei-voxel { right: -18px; top: 94px; opacity: .2; }
   .sousei-tabs { margin-top: 0; }
-  .sousei-tabs__inner { justify-content: flex-start; gap: clamp(18px, 5vw, 28px); min-height: 96px; padding-inline: 20px; }
+  .sousei-tabs::before,
+  .sousei-tabs::after {
+    position: absolute;
+    top: 21px;
+    z-index: 4;
+    display: block;
+    width: 22px;
+    height: 36px;
+    color: rgba(35,25,22,.48);
+    font-size: 46px;
+    font-weight: 300;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 2px 7px rgba(255,255,255,.95), 0 2px 7px rgba(35,25,22,.22);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .18s ease;
+  }
+  .sousei-tabs::before { left: 4px; content: "‹"; }
+  .sousei-tabs::after { right: 4px; content: "›"; }
+  .sousei-tabs.has-scroll-left::before,
+  .sousei-tabs.has-scroll-right::after { opacity: 1; }
+  .sousei-tabs__inner { justify-content: flex-start; gap: clamp(18px, 5vw, 28px); min-height: 96px; padding-inline: 34px; }
   .sousei-tab { flex: 0 0 auto; min-width: 58px; min-height: 96px; padding-top: 10px; font-size: clamp(16px, 4.8vw, 20px); letter-spacing: .05em; }
   .sousei-results { width: min(420px, calc(100% - 34px)); margin-top: 44px; }
   .sousei-count { text-align: left; }
