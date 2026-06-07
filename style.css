@@ -239,8 +239,12 @@ button { font: inherit; }
   .sousei-lead { max-width: 330px; line-height: 1.7; }
   .sousei-voxel { right: -18px; top: 94px; opacity: .2; }
   .sousei-tabs { margin-top: 0; }
-  .sousei-tabs__inner { justify-content: center; gap: clamp(7px, 2vw, 12px); min-height: 96px; padding-inline: 10px; }
-  .sousei-tab { min-height: 96px; padding-top: 10px; font-size: clamp(12px, 3.35vw, 16px); letter-spacing: .04em; }
+  .sousei-tabs__inner { justify-content: center; gap: clamp(5px, 1.6vw, 8px); min-height: 96px; padding-inline: 8px; }
+  .sousei-tab { flex: 1 1 0; min-width: 0; min-height: 96px; padding-top: 10px; font-size: clamp(12px, 3.25vw, 14px); letter-spacing: 0; }
+  .sousei-tab > span { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 34px; padding: 0 3px; border: 1px solid rgba(35,25,22,.16); border-radius: 999px; background: rgba(255,255,255,.88); }
+  .sousei-tab.is-active > span,
+  .sousei-tab:hover > span,
+  .sousei-tab:focus-visible > span { border-color: var(--sousei-service-color); }
   .sousei-results { width: min(420px, calc(100% - 34px)); margin-top: 44px; }
   .sousei-count { text-align: left; }
   .sousei-card-grid { grid-template-columns: 1fr; gap: 34px; }
