@@ -239,8 +239,8 @@ button { font: inherit; }
   .sousei-lead { max-width: 330px; line-height: 1.7; }
   .sousei-voxel { right: -18px; top: 94px; opacity: .2; }
   .sousei-tabs { margin-top: 0; }
-  .sousei-tabs__inner { justify-content: flex-start; min-height: 96px; padding-inline: 20px; }
-  .sousei-tab { min-height: 96px; padding-top: 10px; }
+  .sousei-tabs__inner { justify-content: center; gap: clamp(7px, 2vw, 12px); min-height: 96px; padding-inline: 10px; }
+  .sousei-tab { min-height: 96px; padding-top: 10px; font-size: clamp(12px, 3.35vw, 16px); letter-spacing: .04em; }
   .sousei-results { width: min(420px, calc(100% - 34px)); margin-top: 44px; }
   .sousei-count { text-align: left; }
   .sousei-card-grid { grid-template-columns: 1fr; gap: 34px; }
