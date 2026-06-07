@@ -161,8 +161,8 @@ button { font: inherit; }
   bottom: 4px;
   display: grid;
   place-items: center;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   color: #9d9d9d;
   opacity: 0;
   transform: translate(-50%, -4px) scale(.84);
@@ -219,6 +219,8 @@ button { font: inherit; }
 
 .sousei-footer { position: relative; display: grid; place-items: center; min-height: 230px; background: #fff; }
 .sousei-footer__brand { position: relative; z-index: 1; display: flex; align-items: center; gap: 28px; }
+.sousei-footer__logo { display: inline-flex; line-height: 0; outline-offset: 8px; }
+.sousei-footer__logo:focus-visible { outline: 2px solid var(--sousei-ink); }
 .sousei-footer__brand img { width: min(380px, 63vw); height: auto; }
 .sousei-duck { position: relative; width: 56px; height: 62px; background: #ffc928; box-shadow: 12px 8px 0 rgba(0,0,0,.08); clip-path: polygon(13% 18%, 58% 18%, 58% 4%, 86% 4%, 86% 31%, 100% 31%, 100% 58%, 76% 58%, 76% 100%, 31% 100%, 31% 75%, 0 75%, 0 45%, 13% 45%); }
 .sousei-duck::before { content: ""; position: absolute; right: -8px; top: 23px; width: 18px; height: 12px; background: #f08b24; }

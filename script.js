@@ -195,7 +195,7 @@
     const activeService = souseiServices.find((item) => item.key === souseiActiveService);
     const filteredGroups = souseiGroups.filter((group) => Boolean(group.urls[souseiActiveService]));
     souseiGrid.innerHTML = '';
-    souseiCount.textContent = `${activeService.label} URLあり：${filteredGroups.length}件`;
+    souseiCount.textContent = `${activeService.label}：${filteredGroups.length}件`;
 
     if (!filteredGroups.length) {
       const empty = document.createElement('p');
