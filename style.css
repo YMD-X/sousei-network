@@ -161,8 +161,8 @@ button { font: inherit; }
   bottom: 4px;
   display: grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   color: #9d9d9d;
   opacity: 0;
   transform: translate(-50%, -4px) scale(.84);
@@ -204,6 +204,7 @@ button { font: inherit; }
 .sousei-card__icon-link { display: inline-grid; place-items: center; border-radius: 999px; outline-offset: 4px; text-decoration: none; }
 .sousei-card__icon-link:focus-visible { outline: 2px solid var(--sousei-active-color); }
 .sousei-icon { --sousei-icon-color: #9d9d9d; display: inline-grid; place-items: center; width: 22px; height: 22px; color: #9d9d9d; transition: color .22s ease, transform .22s ease; }
+.sousei-tab__icon.sousei-icon { width: 30px; height: 30px; }
 .sousei-icon[data-service="web"] { --sousei-icon-color: var(--sousei-web); }
 .sousei-icon[data-service="youtube"] { --sousei-icon-color: var(--sousei-youtube); }
 .sousei-icon[data-service="instagram"] { --sousei-icon-color: var(--sousei-instagram); }
