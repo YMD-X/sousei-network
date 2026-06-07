@@ -120,6 +120,7 @@
     return span;
   };
 
+
   const souseiThumb = (theme, name) => {
     const palettes = {
       woodwork: ['#8f7141', '#d8c076', '#f5edcc', '#40291a'],
@@ -192,6 +193,7 @@
     }
 
     filteredGroups.forEach((group) => {
+
       const card = document.createElement('a');
       card.className = 'sousei-card';
       card.href = group.urls[souseiActiveService];
@@ -213,6 +215,7 @@
           <span class="sousei-card__title">${group.name}</span>
           <span class="sousei-card__icons" aria-hidden="true">${availableIcons}</span>
         </span>`;
+
       souseiGrid.appendChild(card);
     });
   };
