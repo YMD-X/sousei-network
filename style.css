@@ -108,7 +108,7 @@ button { font: inherit; }
   position: relative;
   z-index: 3;
   margin-top: 0;
-  --sousei-tab-gray-depth: 30px;
+  --sousei-tab-gray-depth: 44px;
   background: linear-gradient(
     to bottom,
     #fff 0 calc(100% - var(--sousei-tab-gray-depth)),
@@ -120,7 +120,7 @@ button { font: inherit; }
   justify-content: center;
   gap: clamp(16px, 4.2vw, 46px);
   align-items: stretch;
-  min-height: 86px;
+  min-height: 100px;
   padding: 0 18px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -132,7 +132,7 @@ button { font: inherit; }
   display: grid;
   place-items: start center;
   min-width: max-content;
-  min-height: 86px;
+  min-height: 100px;
   padding: 12px 0 calc(var(--sousei-tab-gray-depth) + 14px);
   border: 0;
   color: var(--sousei-ink);
@@ -158,7 +158,7 @@ button { font: inherit; }
 .sousei-tab__icon {
   position: absolute;
   left: 50%;
-  bottom: 4px;
+  bottom: 6px;
   display: grid;
   place-items: center;
   width: 30px;
@@ -239,8 +239,8 @@ button { font: inherit; }
   .sousei-lead { max-width: 330px; line-height: 1.7; }
   .sousei-voxel { right: -18px; top: 94px; opacity: .2; }
   .sousei-tabs { margin-top: 0; }
-  .sousei-tabs__inner { justify-content: flex-start; min-height: 82px; padding-inline: 20px; }
-  .sousei-tab { min-height: 82px; padding-top: 10px; }
+  .sousei-tabs__inner { justify-content: flex-start; min-height: 96px; padding-inline: 20px; }
+  .sousei-tab { min-height: 96px; padding-top: 10px; }
   .sousei-results { width: min(420px, calc(100% - 34px)); margin-top: 44px; }
   .sousei-count { text-align: left; }
   .sousei-card-grid { grid-template-columns: 1fr; gap: 34px; }
