@@ -176,8 +176,10 @@
       tab.type = 'button';
       tab.className = `sousei-tab${isActive ? ' is-active' : ''}`;
       tab.dataset.service = service.key;
+      tab.id = `sousei-tab-${service.key}`;
       tab.style.setProperty('--sousei-service-color', service.color);
       tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', 'sousei-results');
       tab.setAttribute('aria-selected', String(isActive));
       tab.innerHTML = `<span>${service.label}</span>`;
       tab.appendChild(souseiCreateIcon(service.key, 'sousei-tab__icon'));
