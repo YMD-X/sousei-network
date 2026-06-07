@@ -121,9 +121,9 @@
   };
 
 
-  const souseiCreateIconLink = (service, url, groupName) => {
+  const souseiCreateIconLink = (service, url, groupName, isCurrent = false) => {
     const link = document.createElement('a');
-    link.className = 'sousei-card__icon-link';
+    link.className = `sousei-card__icon-link${isCurrent ? ' is-current' : ''}`;
     link.href = url;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
@@ -230,7 +230,12 @@
       souseiServices
         .filter((service) => Boolean(group.urls[service.key]))
         .forEach((service) => {
-          iconList.appendChild(souseiCreateIconLink(service, group.urls[service.key], group.name));
+          iconList.appendChild(souseiCreateIconLink(
+            service,
+            group.urls[service.key],
+            group.name,
+            service.key === souseiActiveService,
+          ));
         });
 
       body.append(title, iconList);
