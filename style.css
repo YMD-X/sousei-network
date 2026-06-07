@@ -210,10 +210,10 @@ button { font: inherit; }
 .sousei-icon[data-service="x"] { --sousei-icon-color: var(--sousei-x); }
 .sousei-icon[data-service="facebook"] { --sousei-icon-color: var(--sousei-facebook); }
 .sousei-card__icon-link.is-current .sousei-icon,
-.sousei-card:hover .sousei-icon,
-.sousei-card:focus-within .sousei-icon { color: var(--sousei-icon-color); }
-.sousei-card:hover .sousei-icon[data-service="youtube"],
-.sousei-card:focus-within .sousei-icon[data-service="youtube"] { transform: translateY(-1px); }
+.sousei-card__icon-link:hover .sousei-icon,
+.sousei-card__icon-link:focus-visible .sousei-icon { color: var(--sousei-icon-color); }
+.sousei-card__icon-link:hover .sousei-icon[data-service="youtube"],
+.sousei-card__icon-link:focus-visible .sousei-icon[data-service="youtube"] { transform: translateY(-1px); }
 .sousei-icon svg { width: 100%; height: 100%; display: block; fill: currentColor; stroke: currentColor; }
 .sousei-empty { grid-column: 1 / -1; padding: 54px 20px; text-align: center; color: #777; background: #fff; box-shadow: var(--sousei-shadow); }
 
