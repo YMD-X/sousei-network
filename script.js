@@ -121,17 +121,6 @@
   };
 
 
-  const souseiCreateIconLink = (service, url, groupName) => {
-    const link = document.createElement('a');
-    link.className = 'sousei-card__icon-link';
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.setAttribute('aria-label', `${groupName} の ${service.label} を開く`);
-    link.appendChild(souseiCreateIcon(service.key));
-    return link;
-  };
-
   const souseiThumb = (theme, name) => {
     const palettes = {
       woodwork: ['#8f7141', '#d8c076', '#f5edcc', '#40291a'],
@@ -204,35 +193,29 @@
     }
 
     filteredGroups.forEach((group) => {
-      const card = document.createElement('article');
+
+      const card = document.createElement('a');
       card.className = 'sousei-card';
+      card.href = group.urls[souseiActiveService];
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
       card.style.setProperty('--sousei-active-color', activeService.color);
+      card.setAttribute('aria-label', `${group.name} の ${activeService.label} を開く`);
 
-      const thumbLink = document.createElement('a');
-      thumbLink.className = 'sousei-card__media';
-      thumbLink.href = group.urls[souseiActiveService];
-      thumbLink.target = '_blank';
-      thumbLink.rel = 'noopener noreferrer';
-      thumbLink.setAttribute('aria-label', `${group.name} の ${activeService.label} を開く`);
-      thumbLink.innerHTML = `<img src="${souseiThumb(group.imageTheme, group.name)}" alt="${group.name}のサムネイル" loading="lazy">`;
-
-      const body = document.createElement('div');
-      body.className = 'sousei-card__body';
-
-      const title = document.createElement('h2');
-      title.className = 'sousei-card__title';
-      title.textContent = group.name;
-
-      const iconList = document.createElement('div');
-      iconList.className = 'sousei-card__icons';
-      souseiServices
+      const availableIcons = souseiServices
         .filter((service) => Boolean(group.urls[service.key]))
-        .forEach((service) => {
-          iconList.appendChild(souseiCreateIconLink(service, group.urls[service.key], group.name));
-        });
+        .map((service) => souseiCreateIcon(service.key).outerHTML)
+        .join('');
 
-      body.append(title, iconList);
-      card.append(thumbLink, body);
+      card.innerHTML = `
+        <span class="sousei-card__media">
+          <img src="${souseiThumb(group.imageTheme, group.name)}" alt="${group.name}のサムネイル" loading="lazy">
+        </span>
+        <span class="sousei-card__body">
+          <span class="sousei-card__title">${group.name}</span>
+          <span class="sousei-card__icons" aria-hidden="true">${availableIcons}</span>
+        </span>`;
+
       souseiGrid.appendChild(card);
     });
   };
