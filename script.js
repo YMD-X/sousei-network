@@ -179,37 +179,37 @@
   };
 
   const souseiThumb = (theme, name) => {
-    const palettes = {
-      woodwork: ['#8f7141', '#d8c076', '#f5edcc', '#40291a'],
-      ceremony: ['#402262', '#d8b640', '#c7a05a', '#231916'],
-      zazen: ['#92745a', '#d8c495', '#526f43', '#f2ede1'],
-      temple: ['#6f352a', '#c9a35a', '#e7dec6', '#2c3d34'],
-      sutra: ['#bfa76a', '#eee1bc', '#6c5230', '#2a211d'],
-      meeting: ['#72563d', '#c8b58e', '#ffffff', '#2f4d65'],
-      city: ['#5d6470', '#d9d1bd', '#8f3d2f', '#26364a'],
-      mountain: ['#536f47', '#c5b36f', '#dfe7ef', '#333b2e'],
-      network: ['#d6b855', '#fff4cc', '#594230', '#2f7c56'],
-    };
-    const [a, b, c, d] = palettes[theme] || palettes.temple;
-    const label = name.replace('曹洞宗青年会', '');
+    const themeOffset = souseiImageThemes.indexOf(theme) * 23;
+    const seed = [...name].reduce(
+      (hash, character) => hash + character.codePointAt(0),
+      themeOffset,
+    );
+    const hueA = seed % 360;
+    const hueB = (hueA + 48 + (seed % 80)) % 360;
+    const hueC = (hueA + 162 + (seed % 44)) % 360;
+    const colorA = `hsl(${hueA} 78% 62%)`;
+    const colorB = `hsl(${hueB} 72% 56%)`;
+    const colorC = `hsl(${hueC} 68% 42%)`;
+    const colorD = `hsl(${(hueA + 228) % 360} 70% 72%)`;
     const svg = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
         <defs>
-          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="${c}"/><stop offset=".62" stop-color="${b}"/><stop offset="1" stop-color="${a}"/></linearGradient>
-          <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-opacity=".24"/></filter>
+          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop stop-color="${colorA}"/>
+            <stop offset=".52" stop-color="${colorB}"/>
+            <stop offset="1" stop-color="${colorC}"/>
+          </linearGradient>
+          <radialGradient id="r" cx="26%" cy="22%" r="70%">
+            <stop stop-color="${colorD}" stop-opacity=".88"/>
+            <stop offset=".55" stop-color="${colorA}" stop-opacity=".25"/>
+            <stop offset="1" stop-color="${colorC}" stop-opacity="0"/>
+          </radialGradient>
         </defs>
         <rect width="640" height="360" fill="url(#g)"/>
-        <path d="M0 258 C115 210 185 301 311 247 C442 190 505 244 640 202 L640 360 L0 360Z" fill="${a}" opacity=".34"/>
-        <g filter="url(#s)">
-          <rect x="70" y="60" width="500" height="210" rx="8" fill="${c}" opacity=".38"/>
-          <path d="M104 254h432v-94H104Zm42-111h348L320 68Z" fill="${d}" opacity=".78"/>
-          <rect x="165" y="160" width="54" height="94" fill="${b}"/><rect x="293" y="160" width="54" height="94" fill="${b}"/><rect x="421" y="160" width="54" height="94" fill="${b}"/>
-        </g>
-        <g opacity=".9">
-          <circle cx="176" cy="286" r="20" fill="${d}"/><circle cx="248" cy="286" r="20" fill="${d}"/><circle cx="392" cy="286" r="20" fill="${d}"/><circle cx="464" cy="286" r="20" fill="${d}"/>
-          <rect x="158" y="306" width="36" height="30" fill="${d}"/><rect x="230" y="306" width="36" height="30" fill="${d}"/><rect x="374" y="306" width="36" height="30" fill="${d}"/><rect x="446" y="306" width="36" height="30" fill="${d}"/>
-        </g>
-        <text x="320" y="326" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#fff" opacity=".88">${label}</text>
+        <circle cx="118" cy="72" r="190" fill="url(#r)"/>
+        <path d="M0 268 C118 204 208 324 342 246 C468 174 546 236 640 176 L640 360 L0 360Z" fill="#fff" opacity=".18"/>
+        <path d="M-34 42 C124 104 210 -26 358 42 C470 94 548 48 674 6" fill="none" stroke="#fff" stroke-width="34" opacity=".14"/>
+        <path d="M54 328 C184 274 254 344 376 302 C468 270 548 288 640 238" fill="none" stroke="#231916" stroke-width="42" opacity=".08"/>
       </svg>`;
     return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
   };

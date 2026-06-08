@@ -204,7 +204,7 @@ button { font: inherit; }
 .sousei-card:hover .sousei-card__media img,
 .sousei-card:focus-within .sousei-card__media img { filter: saturate(1.16); transform: scale(1.035); }
 .sousei-card__body { min-height: 142px; padding: 31px 22px 28px; text-align: center; }
-.sousei-card__title { margin: 0 0 18px; font-size: clamp(18px, 1.75vw, 22px); font-weight: 800; letter-spacing: .04em; }
+.sousei-card__title { display: block; margin: 0 0 18px; overflow: hidden; font-size: clamp(13px, 1.35vw, 18px); font-weight: 800; letter-spacing: .02em; text-overflow: ellipsis; white-space: nowrap; }
 .sousei-card__icons { display: flex; justify-content: center; align-items: center; gap: 17px; }
 .sousei-card__icon-link { display: inline-grid; place-items: center; border-radius: 999px; outline-offset: 4px; text-decoration: none; }
 .sousei-card__icon-link:focus-visible { outline: 2px solid var(--sousei-active-color); }
