@@ -9,92 +9,122 @@
     { key: 'facebook', label: 'Facebook', color: 'var(--sousei-facebook)', icon: 'facebook' },
   ];
 
-  const souseiGroups = [
-    {
-      name: '秋田県曹洞宗青年会',
-      imageTheme: 'woodwork',
-      urls: {
-        web: 'https://example.com/akita/',
-        youtube: 'https://www.youtube.com/@akita-sousei',
-        facebook: 'https://www.facebook.com/akita.sousei',
-      },
-    },
-    {
-      name: '青森県曹洞宗青年会',
-      imageTheme: 'ceremony',
-      urls: {
-        web: 'https://example.com/aomori/',
-        youtube: 'https://www.youtube.com/@aomori-sousei',
-        x: 'https://x.com/aomori_sousei',
-      },
-    },
-    {
-      name: '宮城県曹洞宗青年会',
-      imageTheme: 'zazen',
-      urls: {
-        web: 'https://example.com/miyagi/',
-        youtube: 'https://www.youtube.com/@miyagi-sousei',
-        instagram: 'https://www.instagram.com/miyagi_sousei/',
-        x: 'https://x.com/miyagi_sousei',
-        facebook: 'https://www.facebook.com/miyagi.sousei',
-      },
-    },
-    {
-      name: '山形県曹洞宗青年会',
-      imageTheme: 'temple',
-      urls: {
-        web: 'https://example.com/yamagata/',
-        instagram: 'https://www.instagram.com/yamagata_sousei/',
-        facebook: 'https://www.facebook.com/yamagata.sousei',
-      },
-    },
-    {
-      name: '岩手県曹洞宗青年会',
-      imageTheme: 'sutra',
-      urls: {
-        web: 'https://example.com/iwate/',
-        youtube: 'https://www.youtube.com/@iwate-sousei',
-      },
-    },
-    {
-      name: '福島県曹洞宗青年会',
-      imageTheme: 'meeting',
-      urls: {
-        web: 'https://example.com/fukushima/',
-        x: 'https://x.com/fukushima_sousei',
-        facebook: 'https://www.facebook.com/fukushima.sousei',
-      },
-    },
-    {
-      name: '東京都曹洞宗青年会',
-      imageTheme: 'city',
-      urls: {
-        web: 'https://example.com/tokyo/',
-        youtube: 'https://www.youtube.com/@tokyo-sousei',
-        instagram: 'https://www.instagram.com/tokyo_sousei/',
-        x: 'https://x.com/tokyo_sousei',
-      },
-    },
-    {
-      name: '長野県曹洞宗青年会',
-      imageTheme: 'mountain',
-      urls: {
-        web: 'https://example.com/nagano/',
-        instagram: 'https://www.instagram.com/nagano_sousei/',
-      },
-    },
-    {
-      name: '全国曹洞宗青年会',
-      imageTheme: 'network',
-      urls: {
-        web: 'https://example.com/zenkoku/',
-        youtube: 'https://www.youtube.com/@zenkoku-sousei',
-        instagram: 'https://www.instagram.com/zenkoku_sousei/',
-        x: 'https://x.com/zenkoku_sousei',
-        facebook: 'https://www.facebook.com/zenkoku.sousei',
-      },
-    },
+  const souseiGroupOrderList = [
+    '曹洞宗北海道第一宗務所青年会',
+    '曹洞宗北海道第二宗務所青年会',
+    '曹洞宗北海道第三宗務所青年会',
+    '青森県曹洞宗青年会',
+    '岩手県曹洞宗青年会',
+    '宮城県曹洞宗青年会',
+    '秋田県曹洞宗青年会',
+    '山形曹洞宗青年会',
+    '曹洞宗山形県第三宗務所青年会',
+    '曹洞宗福島県青年会',
+    '茨城県曹洞宗青年会',
+    '曹洞宗埼玉県第二宗務所青年会',
+    '千葉県曹洞宗青年会',
+    '新潟県曹洞宗青年会',
+    '曹洞宗石川県青年会',
+    '福井県曹洞宗青年会',
+    '曹洞宗山梨県青年会',
+    '曹洞宗長野県第一青年会',
+    '曹洞宗長野県第二宗務所青年会',
+    '曹洞宗岐阜県青年会',
+    '曹洞宗静岡県第一宗務所青年会',
+    '伊豆曹洞宗青年会',
+    '静岡第三同志会',
+    '静岡第四曹青・照自会',
+    '愛知県第一曹洞宗青年会',
+    '東三河曹洞宗青年会',
+    '曹洞宗愛知県第三宗務所青年会',
+    '三重県曹洞宗青年会',
+    '三重県第二曹洞宗青年会',
+    '滋賀県曹洞宗青年会',
+    '京都曹洞宗青年会',
+    '大阪曹洞宗青年会',
+    '曹洞宗兵庫県第二宗務所青年会',
+    '奈良県曹洞宗青年会',
+    '和歌山県曹洞宗青年会',
+    '曹洞宗鳥取県青年会',
+    '石見曹洞宗青年会',
+    'いずも曹洞宗青年会',
+    '岡山県曹洞宗青年会',
+    '広島県曹洞宗青年会',
+    '山口県曹洞宗青年会',
+    '四国地区曹洞宗青年会',
+    '福岡県曹洞宗青年会',
+    '佐賀県曹洞宗青年会',
+    '長崎県曹洞宗青年会',
+    '熊本県曹洞宗青年会',
+    '大分県曹洞宗青年会',
+    '宮崎県曹洞宗青年会',
+    '鹿児島県曹洞宗青年会',
   ];
+
+  const souseiGroupOrderMap = new Map(
+    souseiGroupOrderList.map((name, index) => [name, index]),
+  );
+
+  const souseiImageThemes = [
+    'woodwork',
+    'ceremony',
+    'zazen',
+    'temple',
+    'sutra',
+    'meeting',
+    'city',
+    'mountain',
+    'network',
+  ];
+
+  const souseiSlug = (name, index) => `group-${String(index + 1).padStart(2, '0')}`;
+
+  const souseiCreateDemoUrls = (name, index) => {
+    const slug = souseiSlug(name, index);
+    const urls = {
+      web: `https://example.com/${slug}/`,
+    };
+
+    if (index % 2 === 0) {
+      urls.youtube = `https://www.youtube.com/@sousei-${slug}`;
+    }
+
+    if (index % 3 === 0) {
+      urls.instagram = `https://www.instagram.com/sousei_${slug.replaceAll('-', '_')}/`;
+    }
+
+    if (index % 4 === 0) {
+      urls.x = `https://x.com/sousei_${slug.replaceAll('-', '_')}`;
+    }
+
+    if (index % 5 === 0) {
+      urls.facebook = `https://www.facebook.com/sousei.${slug}`;
+    }
+
+    return urls;
+  };
+
+  const souseiGroups = souseiGroupOrderList.map((name, index) => ({
+    name,
+    imageTheme: souseiImageThemes[index % souseiImageThemes.length],
+    urls: souseiCreateDemoUrls(name, index),
+  }));
+
+  const souseiCompareGroupsByFixedOrder = (groupA, groupB) => {
+    const fallbackOrder = souseiGroupOrderList.length;
+    const orderA = souseiGroupOrderMap.has(groupA.name)
+      ? souseiGroupOrderMap.get(groupA.name)
+      : fallbackOrder;
+    const orderB = souseiGroupOrderMap.has(groupB.name)
+      ? souseiGroupOrderMap.get(groupB.name)
+      : fallbackOrder;
+
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+
+    return souseiGroups.indexOf(groupA) - souseiGroups.indexOf(groupB);
+  };
 
   const souseiIconPaths = {
     web: '<circle cx="12" cy="12" r="9" fill="none" stroke-width="1.8"/><path d="M3.6 12h16.8M12 3.2c2.7 2.6 4 5.5 4 8.8s-1.3 6.2-4 8.8c-2.7-2.6-4-5.5-4-8.8s1.3-6.2 4-8.8Z" fill="none" stroke-width="1.8"/>',
@@ -210,7 +240,9 @@
 
   const souseiRenderCards = () => {
     const activeService = souseiServices.find((item) => item.key === souseiActiveService);
-    const filteredGroups = souseiGroups.filter((group) => Boolean(group.urls[souseiActiveService]));
+    const filteredGroups = souseiGroups
+      .filter((group) => Boolean(group.urls[souseiActiveService]))
+      .sort(souseiCompareGroupsByFixedOrder);
     souseiGrid.innerHTML = '';
     souseiCount.textContent = `${activeService.label}：${filteredGroups.length}件`;
 
