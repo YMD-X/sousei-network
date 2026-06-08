@@ -272,6 +272,7 @@ button { font: inherit; }
   .sousei-count { text-align: left; }
   .sousei-card-grid { grid-template-columns: 1fr; gap: 34px; }
   .sousei-card__body { min-height: 128px; padding: 26px 18px 24px; }
+  .sousei-card__title { font-size: 18px; }
   .sousei-card__media img,
   .sousei-card:hover .sousei-card__media img,
   .sousei-card:focus-within .sousei-card__media img { filter: saturate(1); transform: none; }
